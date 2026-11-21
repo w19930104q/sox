@@ -946,11 +946,18 @@ static int startread(sox_format_t *ft)
         break;
 
     case WAVE_FORMAT_IMA_ADPCM:
-        /* Compute easiest part of number of samples.  For every block, there
-           are samplesPerBlock samples to read. */
-        wav->numSamples =
-            lsx_ima_samples_in(qwDataLength, ft->signal.channels,
-                               wav->blockAlign, wav->samplesPerBlock);
+        /* Compute the number of samples that the data chunk can hold.  For
+           every block, there are samplesPerBlock samples to read.  The last
+           block may be padded, so this is only an upper bound; the true
+           sample count, if the file has a fact chunk, may be smaller. */
+        {
+            uint64_t maxSamples =
+                lsx_ima_samples_in(qwDataLength, ft->signal.channels,
+                                   wav->blockAlign, wav->samplesPerBlock);
+            /* Trust the fact chunk only if it holds a plausible count. */
+            if (!wav->numSamples || wav->numSamples > maxSamples)
+                wav->numSamples = maxSamples;
+        }
         wav->blockSamplesRemaining = 0;        /* Samples left in buffer */
         lsx_ima_init_table();
         break;
