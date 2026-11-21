@@ -59,6 +59,7 @@
   FORMAT(ul)
   FORMAT(voc)
   FORMAT(vox)
+  FORMAT(w64)
   FORMAT(wav)
   FORMAT(wve)
   FORMAT(xa)
@@ -116,7 +117,6 @@
   FORMAT(paf)
   FORMAT(pvf)
   FORMAT(sd2)
-  FORMAT(w64)
   FORMAT(xi)
 #endif
 #if defined HAVE_SUNAUDIO && (defined STATIC_SUNAUDIO || !defined HAVE_LIBLTDL)

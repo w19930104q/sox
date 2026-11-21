@@ -253,7 +253,7 @@ endif
 
 if HAVE_SNDFILE
 if STATIC_SNDFILE
-  libsox_la_SOURCES += sndfile.c caf.c mat4.c mat5.c paf.c fap.c w64.c xi.c pvf.c sd2.c
+  libsox_la_SOURCES += sndfile.c caf.c mat4.c mat5.c paf.c fap.c xi.c pvf.c sd2.c
   libsox_la_CFLAGS += @LIBSNDFILE_CFLAGS@
 if STATIC_LIBSOX_ONLY
   sox_LDADD += @LIBSNDFILE_LIBS@
@@ -279,9 +279,6 @@ libsox_fmt_paf_la_LIBADD = @LIBSNDFILE_LIBS@
 libsox_fmt_fap_la_SOURCES = fap.c sndfile.c
 libsox_fmt_fap_la_CFLAGS = @LIBSNDFILE_CFLAGS@
 libsox_fmt_fap_la_LIBADD = @LIBSNDFILE_LIBS@
-libsox_fmt_w64_la_SOURCES = w64.c sndfile.c
-libsox_fmt_w64_la_CFLAGS = @LIBSNDFILE_CFLAGS@
-libsox_fmt_w64_la_LIBADD = @LIBSNDFILE_LIBS@
 libsox_fmt_xi_la_SOURCES = xi.c sndfile.c
 libsox_fmt_wi_la_CFLAGS = @LIBSNDFILE_CFLAGS@
 libsox_fmt_xi_la_LIBADD = @LIBSNDFILE_LIBS@
@@ -291,7 +288,7 @@ libsox_fmt_pvf_la_LIBADD = @LIBSNDFILE_LIBS@
 libsox_fmt_sd2_la_SOURCES = sd2.c sndfile.c
 libsox_fmt_sd2_CFLAGS = @LIBSNDFILE_CFLAGS@
 libsox_fmt_sd2_la_LIBADD = @LIBSNDFILE_LIBS@
-pkglib_LTLIBRARIES += libsox_fmt_sndfile.la libsox_fmt_caf.la libsox_fmt_mat4.la libsox_fmt_mat5.la libsox_fmt_paf.la libsox_fmt_fap.la libsox_fmt_w64.la libsox_fmt_xi.la libsox_fmt_pvf.la libsox_fmt_sd2.la
+pkglib_LTLIBRARIES += libsox_fmt_sndfile.la libsox_fmt_caf.la libsox_fmt_mat4.la libsox_fmt_mat5.la libsox_fmt_paf.la libsox_fmt_fap.la libsox_fmt_xi.la libsox_fmt_pvf.la libsox_fmt_sd2.la
 endif
 endif
 

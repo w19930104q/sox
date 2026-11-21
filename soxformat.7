@@ -692,8 +692,11 @@ passing the decoded audio through a high-pass filter, e.g.:
 	sox input.vox output.wav highpass 10
 .EE
 .TP
-\&\fB.w64\fR (optional)
-Sonic Foundry's 64-bit RIFF/WAV format.
+\&\fB.w64\fR
+Sonic Foundry's 64-bit RIFF/WAV format (Wave64).
+SoX reads and writes uncompressed 16/24/32-bit PCM and 32/64-bit
+floating-point \fB.w64\fR files; other encodings are rejected with an
+error.
 .TP
 \&\fB.wav\fR (also with \fB\-t sndfile\fR)
 Microsoft .WAV RIFF files.
